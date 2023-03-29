@@ -1,0 +1,97 @@
+#linked List addition
+#addition -> add at beginning, at end, after a given node, before a given node
+#linked list->removal
+#removal->start,end,middle
+#to create nodes
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class LinkedList:
+    #initialising a empty linked list
+    def __init__(self):
+        self.head=None
+        
+    #linkedlist traversal or printing
+    def print_LL(self):
+        if self.head==None:     #empty linked list
+            print("Linked list is empty")
+        else:
+            n=self.head
+            while(n!=None):
+                print(n.data,"-->",end=" ")
+                n=n.next
+    
+    #adding node at begining 
+    def add_begin(self,data):
+        new_node=Node(data)
+        new_node.next=self.head
+        self.head=new_node  #making the new node as head
+    
+    #adding node at end of linked list 
+    def add_end(self,data):
+        new_node=Node(data)
+        #if linked list is empty then make the new node as head
+        if self.head==None:
+            self.head=new_node
+        else:
+            n=self.head
+            while(n.next!=None):
+                n=n.next
+            n.next=new_node
+    
+    #adding node after a given node(x->data)
+    def add_after(self,data,x):
+        n=self.head
+        while(n!=None):         #find the given node by traversing the linkedlist
+            if n.data==x:
+                break
+            n=n.next
+        if n==None:
+            print("the given node is not present")
+        else:
+            new_node=Node(data)
+            new_node.next=n.next
+            n.next=new_node
+    
+    #adding node before a given node(x->data)      
+    def add_before(self,data,x):
+        #if the given node is head then new node has to be inserted before head
+        #threfore make the new node as head
+        if self.head==None:         #without this condition then error will come if linked list is empty
+            print("Linked list is empty")
+            return
+        if self.head.data==x:       #if linkedlist is empty without the above condition, we will get error
+            new_node=Node(data)
+            new_node.next=self.head
+            self.head=new_node
+            return 
+        
+        #if the given node is not the head node
+        n=self.head
+        while(n.next!=None):
+            if n.next.data==x:      #finding the given node by its previous node
+                break
+            n=n.next
+        if n.next==None:
+            print("the given node is not present")
+        else:
+            new_node=Node(data)
+            new_node.next=n.next
+            n.next=new_node
+    
+    #deleting the 1st node
+    def delete_begin(self):
+        if self.head==None:
+            print("Linked list is empty so we cannot delete")
+        else:
+            self.head=self.head.next    #make the second node as head
+            
+LL=LinkedList()
+#LL.add_begin(10)
+#LL.add_begin(20)
+#LL.add_begin(30)
+#LL.delete_begin()
+LL.add_before(200,100)
+LL.print_LL()
