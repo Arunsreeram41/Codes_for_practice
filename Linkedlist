@@ -88,10 +88,23 @@ class LinkedList:
         else:
             self.head=self.head.next    #make the second node as head
             
+    #deleting the last node
+    def delete_end(self):
+        if self.head==None:
+            print("LL is empty so cannot delete any node")
+        elif self.head.next==None: #if we have only one node then make it as none
+            self.head=None
+        else:
+            n=self.head
+            while(n.next.next!=None):       #goto the 2nd last node and make its next as none
+                n=n.next
+            n.next=None
+            
 LL=LinkedList()
-#LL.add_begin(10)
+LL.add_begin(10)
 #LL.add_begin(20)
 #LL.add_begin(30)
 #LL.delete_begin()
-LL.add_before(200,100)
+#LL.add_before(200,100)
+LL.delete_end()
 LL.print_LL()
