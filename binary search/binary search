@@ -2,7 +2,7 @@
 
 * Divide and Conquer: It starts by considering the entire array and then repeatedly divides the search interval in half.
 * Comparison with the Middle Element: It compares the target value with the middle element of the current subarray.
-* If the target is equal to the middle element, the search is successful.
-* If the target is less than the middle element, the search continues in the left half of the subarray.
-* If the target is greater than the middle element, the search continues in the right half of the subarray.
+    * If the target is equal to the middle element, the search is successful.
+    * If the target is less than the middle element, the search continues in the left half of the subarray.
+    * If the target is greater than the middle element, the search continues in the right half of the subarray.
 * Repeat until Found: This process of dividing the search interval and comparing with the middle element is repeated until the target is found or the search space becomes empty.
